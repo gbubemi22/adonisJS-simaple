@@ -20,16 +20,9 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
+import './auth'
+import './user'
+
 Route.get('/', async () => {
   return { hello: 'world AGAIN and again' }
 })
-
-Route.group(() => {
-  // Authentication routes
-  Route.post('/register', 'AuthController.createUser')
-  Route.post('/login', 'AuthController.login')
-
-  // Other routes
-  Route.get('/users', 'UserController.index')
-  Route.get('/users/:id', 'UserController.show')
-}).prefix('/api/v1')
